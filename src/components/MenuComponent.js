@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, 
     CardImg, 
     CardImgOverlay, 
     CardTitle } from 'reactstrap'; 
 
-class Menu extends Component {
-    constructor(props) {
-        super(props);
-
-        //Stores poperties related to this component that we can make use 
-        //this.state = {
-        //    selectedDish: null
-        //}
-    }
-
-    render() {
-        const menu = this.props.dishes.map((dish) => {
-            return (
-                <div key={dish.id} className="col-12 col-md-5 m-1">
-                    <Card onClick={() => this.props.onClick(dish.id)}>
+    function RenderMenuItem({dish, onClick}) {
+        return (
+            <Card onClick={() => onClick(dish.id)}>
                         <CardImg width="100%" object src={dish.image} alt={dish.name} />
                         <CardImgOverlay body className="ml-5">
                             <CardTitle> {dish.name} </CardTitle>
                         </CardImgOverlay>
-                    </Card>
+            </Card>
+        );
+    }
+
+    // This is a same function like RenderMenuItem but in ES6 version using arrow function
+    const Menu = (props) => {
+        const menu = props.dishes.map((dish) => {
+            return (
+                <div key={dish.id} className="col-12 col-md-5 m-1">
+                    <RenderMenuItem dish={dish} onClick={props.onClick} />
                 </div>
             );
         });
@@ -33,8 +30,8 @@ class Menu extends Component {
                     {menu}
                 </div>
             </div>
-        );
+        );  
     }
-}
+        
 
 export default Menu;
