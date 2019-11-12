@@ -1,15 +1,20 @@
 import React, { Component }from 'react';
-import Menu from './components/MainComponent';
+import Main from './components/MainComponent';
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
 
   render() {
-    return (
+    return ( 
       // My first coding in ReactJS starts here. Wish me luck!!!. Imedia gamomiva
-      <div>
-        <Menu />
-      </div>
+
+      // Using react router to navigate views where user clicks to
+      <BrowserRouter>
+        <div>
+          <Main />
+        </div>
+      </BrowserRouter>
     );
   }
 }
