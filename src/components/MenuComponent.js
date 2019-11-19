@@ -9,13 +9,6 @@ import {Link} from 'react-router-dom';
 
     function RenderMenuItem ({dish, onClick}) {
         return (
-<<<<<<< HEAD
-            <Card onClick={() => onClick(this.props.dish.id)}>
-                <CardImg width="100%" src={dish.image} alt={dish.name} />
-                <CardImgOverlay>
-                    <CardTitle>{dish.name}</CardTitle>
-                </CardImgOverlay>
-=======
             <Card>
                 <Link to={`/menu/${dish.id}`} >
                     <CardImg width="100%" src={dish.image} alt={dish.name} />
@@ -23,7 +16,6 @@ import {Link} from 'react-router-dom';
                         <CardTitle>{dish.name}</CardTitle>
                     </CardImgOverlay>
                 </Link>
->>>>>>> fix-detached-HEAD
             </Card>
         );
     }
