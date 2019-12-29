@@ -9,8 +9,13 @@ export const ConfigureStore = () => {
         combineReducers({
             dishes: Dishes,
             comments: Comments,
+<<<<<<< HEAD
             promotions: Promotions,
             leaders: Leaders
+=======
+            leaders: Leaders,
+            promotions: Promotions
+>>>>>>> 11c53684840a8b50eceaa08657a1456b60253ec9
         })
     );
 
