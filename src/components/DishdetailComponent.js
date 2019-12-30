@@ -38,7 +38,7 @@ import {Card,
     }
 
     //rendering comments to display
-    function RenderComments({comments}) {
+    function RenderComments({comments, addComment, dishId}) {
         if (comments == null || comments.length === 0) {
             return (
                 <div>
@@ -63,6 +63,7 @@ import {Card,
                 <ul className="list-unstyled">
                     { renderedComments }
                 </ul>
+                <CommentForm dishId={dishId} addComment={addComment} />
             </div>
         );
     }
@@ -88,8 +89,10 @@ import {Card,
                             <RenderDish dish={props.dish} />
                         </div>
                         <div className="col-12 col-md-5 m-1">
-                            <RenderComments comments={props.comments} />
-                            <CommentForm />
+                            <RenderComments comments={props.comments} 
+                                addComment={props.addComment}
+                                dishId={props.dish.id}
+                            />
                         </div>
                     </div>
                 </div>
@@ -122,8 +125,9 @@ import {Card,
         }
 
         handleSubmit(values) {
-            console.log("Current state is: " + JSON.stringify(values));
+            //console.log("Current state is: " + JSON.stringify(values));
             alert("Current state is: " + JSON.stringify(values));
+            //this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
         }
 
         render() {
